@@ -13,7 +13,9 @@ type MemoryDriver struct {
 }
 
 func NewMemory() MemoryDriver {
-	return MemoryDriver{}
+	return MemoryDriver{
+		dataTable: make(map[string][]byte),
+	}
 }
 
 func (m *MemoryDriver) Set(key string, value []byte) error {
