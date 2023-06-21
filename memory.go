@@ -27,7 +27,7 @@ func (m *MemoryDriver) Set(key string, value []byte) error {
 }
 
 func (m *MemoryDriver) Get(key string) ([]byte, error) {
-	m.mu.RLocker()
+	m.mu.RLock()
 	defer m.mu.RUnlock()
 	d, ok := m.dataTable[key]
 	if !ok {
